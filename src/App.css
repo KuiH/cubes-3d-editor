@@ -201,6 +201,7 @@
   flex: 1;
   display: flex;
   overflow: hidden;
+  min-height: 0;
 }
 
 .main-view {
@@ -215,12 +216,14 @@
 .ortho-grid {
   flex: none;
   width: 562px;
+  min-height: 0;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
   gap: 2px;
   background: #141a29;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 @media (max-width: 1500px) {
