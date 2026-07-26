@@ -48,32 +48,33 @@ function PresetDropdown() {
 }
 
 export function Toolbar() {
-  const clearAll = useCubeStore((s) => s.clearAll);
   const paintMode = useColorStore((s) => s.paintMode);
   const setPaintMode = useColorStore((s) => s.setPaintMode);
 
   return (
     <div className="toolbar">
-      <span className="toolbar-title">3D Cube Editor</span>
-      <PresetDropdown />
-      <button className="btn-clear" onClick={clearAll}>
-        Clear
-      </button>
-      <div className="mode-buttons">
-        <button
-          className={`btn-mode ${!paintMode ? 'active' : ''}`}
-          onClick={() => setPaintMode(false)}
-        >
-          放置
-        </button>
-        <button
-          className={`btn-mode ${paintMode ? 'active' : ''}`}
-          onClick={() => setPaintMode(true)}
-        >
-          涂色
-        </button>
+      <div className="toolbar-row">
+        <span className="toolbar-title">3D Cube Editor</span>
+        <div className="toolbar-spacer" />
+        <div className="mode-buttons">
+          <button
+            className={`btn-mode ${!paintMode ? 'active' : ''}`}
+            onClick={() => setPaintMode(false)}
+          >
+            放置
+          </button>
+          <button
+            className={`btn-mode ${paintMode ? 'active' : ''}`}
+            onClick={() => setPaintMode(true)}
+          >
+            涂色
+          </button>
+        </div>
       </div>
-      <ColorPicker />
+      <div className="toolbar-row">
+        <PresetDropdown />
+        <ColorPicker />
+      </div>
     </div>
   );
 }

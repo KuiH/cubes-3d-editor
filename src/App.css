@@ -17,12 +17,22 @@
    ========================================== */
 .toolbar {
   display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 14px 22px;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 22px;
   background: #1a2136;
   border-bottom: 1px solid #252d40;
   flex-shrink: 0;
+}
+
+.toolbar-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.toolbar-spacer {
+  flex: 1;
 }
 
 .toolbar-title {
@@ -32,13 +42,10 @@
   white-space: nowrap;
 }
 
-/* ----- 预设图形下拉 ----- */
-.preset-dropdown {
-  position: relative;
-}
-
-.preset-trigger {
-  padding: 8px 14px;
+/* ----- 按钮基础样式（预设 / 放置 / 涂色） ----- */
+.preset-trigger,
+.btn-mode {
+  padding: 7px 14px;
   border: 1px solid #2a334b;
   border-radius: 5px;
   background: #1a2136;
@@ -50,9 +57,15 @@
   transition: background 0.15s, border-color 0.15s;
 }
 
-.preset-trigger:hover {
+.preset-trigger:hover,
+.btn-mode:hover {
   background: #252d40;
   border-color: #3b4560;
+}
+
+/* ----- 预设图形下拉 ----- */
+.preset-dropdown {
+  position: relative;
 }
 
 .preset-menu {
@@ -86,30 +99,10 @@
   background: #252d40;
 }
 
-.btn-clear {
-  color: #f0626e !important;
-  border-color: #f0626e !important;
-}
-
-.btn-clear:hover {
-  background: #3d1f24 !important;
-}
-
 /* ----- 放置/涂色 双按钮 ----- */
 .mode-buttons {
   display: flex;
   gap: 0;
-}
-
-.mode-buttons .btn-mode {
-  padding: 8px 18px;
-  border: 1px solid #2a334b;
-  background: #1a2136;
-  color: #c8d0e0;
-  cursor: pointer;
-  font-size: 17px;
-  line-height: 1.4;
-  transition: background 0.15s, border-color 0.15s;
 }
 
 .mode-buttons .btn-mode:first-child {
@@ -119,10 +112,6 @@
 .mode-buttons .btn-mode:last-child {
   border-radius: 0 5px 5px 0;
   border-left: none;
-}
-
-.mode-buttons .btn-mode:hover {
-  background: #252d40;
 }
 
 .mode-buttons .btn-mode.active {
@@ -328,6 +317,10 @@
 
   .toolbar {
     padding: 6px 8px;
+    gap: 4px;
+  }
+
+  .toolbar-row {
     gap: 6px;
   }
 
@@ -335,7 +328,8 @@
     font-size: 14px;
   }
 
-  .preset-trigger {
+  .preset-trigger,
+  .btn-mode {
     padding: 4px 10px;
     font-size: 12px;
   }
@@ -343,12 +337,6 @@
   .preset-item {
     padding: 6px 10px;
     font-size: 14px;
-  }
-
-  .btn-clear,
-  .mode-buttons .btn-mode {
-    padding: 4px 8px;
-    font-size: 12px;
   }
 
   .main-layout {
