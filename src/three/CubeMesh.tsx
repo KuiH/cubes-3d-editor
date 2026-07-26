@@ -21,7 +21,12 @@ export function CubeMesh({ data }: { data: CubeData }) {
         geometry={boxGeo}
         userData={{ cubeId: data.id, type: 'cube' }}
       >
-        <meshStandardMaterial color={data.color ?? '#f5f5f5'} />
+        <meshStandardMaterial
+          color={data.color ?? '#f5f5f5'}
+          polygonOffset
+          polygonOffsetFactor={1}
+          polygonOffsetUnits={1}
+        />
       </mesh>
 
       {/* 边框线（区分相邻方块的边界） */}
