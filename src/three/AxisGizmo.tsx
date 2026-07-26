@@ -8,7 +8,7 @@ import { Html } from '@react-three/drei';
 //   Z轴(+) = 顶面 (Three's +Y)  — 蓝色
 // 验证：X × Y = Z → +Z × +X = +Y ✓
 
-const AXIS_LENGTH = 6;
+const AXIS_LENGTH = 4;
 const AXIS_RADIUS = 0.06;
 
 const AXES: Array<{
