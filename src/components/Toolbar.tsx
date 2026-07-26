@@ -1,10 +1,13 @@
 import { useCubeStore } from '../store/cubeStore';
+import { useColorStore } from '../store/colorStore';
 import { ColorPicker } from './ColorPicker';
 import type { PresetType } from '../types';
 
 export function Toolbar() {
   const generatePreset = useCubeStore((s) => s.generatePreset);
   const clearAll = useCubeStore((s) => s.clearAll);
+  const paintMode = useColorStore((s) => s.paintMode);
+  const togglePaintMode = useColorStore((s) => s.togglePaintMode);
 
   const presets: PresetType[] = ['3x3x3', '4x4x4', '5x5x5'];
 
@@ -22,6 +25,12 @@ export function Toolbar() {
           Clear
         </button>
       </div>
+      <button
+        className={`btn-paint-mode ${paintMode ? 'active' : ''}`}
+        onClick={togglePaintMode}
+      >
+        {paintMode ? '🎨 涂色中' : '🧱 放置'}
+      </button>
       <ColorPicker />
     </div>
   );

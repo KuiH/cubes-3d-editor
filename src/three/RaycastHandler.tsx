@@ -65,6 +65,7 @@ export function RaycastHandler() {
   const selectCube = useCubeStore((s) => s.selectCube);
   const setCubeColor = useCubeStore((s) => s.setCubeColor);
   const currentColor = useColorStore((s) => s.currentColor);
+  const paintMode = useColorStore((s) => s.paintMode);
 
   const getIntersections = useCallback(
     (event: MouseEvent) => {
@@ -102,16 +103,25 @@ export function RaycastHandler() {
       );
 
       if (cubeHit && cubeHit.face?.normal) {
+        const cubeId = cubeHit.object.userData.cubeId as string;
+
+        if (paintMode) {
+          // 涂色模式：点击方块直接上色（不上色则不操作）
+          selectCube(cubeId);
+          if (currentColor) {
+            setCubeColor(cubeId, currentColor);
+          }
+          return;
+        }
+
+        // 放置模式：相邻空位放新方块，相邻已占则选中+上色
         const adjPos = getAdjacentPosition(cubeHit.point, cubeHit.face.normal);
         const adjId = `${adjPos[0]},${adjPos[1]},${adjPos[2]}`;
 
         if (!cubes.has(adjId)) {
-          // 相邻空位 → 放置新方块（若已选色则带颜色）
           addCube(adjPos[0], adjPos[1], adjPos[2], currentColor);
           return;
         }
-        // 相邻已占 → 选中方块；若已选色则上色
-        const cubeId = cubeHit.object.userData.cubeId as string;
         selectCube(cubeId);
         if (currentColor) {
           setCubeColor(cubeId, currentColor);
@@ -119,7 +129,7 @@ export function RaycastHandler() {
         return;
       }
 
-      // 未命中正方体 → 检测网格平面
+      // 未命中正方体 → 检测网格平面（两种模式均支持地面放置）
       const gridHit = intersects.find(
         (hit) => hit.object.name === 'gridPlane',
       );
@@ -131,7 +141,7 @@ export function RaycastHandler() {
         }
       }
     },
-    [getIntersections, cubes, addCube, selectCube, setCubeColor, currentColor],
+    [getIntersections, cubes, addCube, selectCube, setCubeColor, currentColor, paintMode],
   );
 
   const handleClick = useCallback(
