@@ -4,12 +4,12 @@ import type { ViewDirection } from '../types';
 const ALL_VIEWS: ViewDirection[] = ['front', 'back', 'left', 'right', 'top', 'bottom'];
 
 const VIEW_LABELS: Record<ViewDirection, string> = {
-  front: '正面',
-  back: '背面',
-  left: '左面',
-  right: '右面',
-  top: '顶面',
-  bottom: '底面',
+  front: '主视图',
+  back: '后视图',
+  left: '左视图',
+  right: '右视图',
+  top: '俯视图',
+  bottom: '仰视图',
 };
 
 export function ViewPanel() {

@@ -16,9 +16,9 @@ const AXES: Array<{
   direction: THREE.Vector3;
   color: string;
 }> = [
-  { label: '正面 X', direction: new THREE.Vector3(0, 0, 1), color: '#e94560' },
-  { label: '右面 Y', direction: new THREE.Vector3(1, 0, 0), color: '#00cc44' },
-  { label: '顶面 Z', direction: new THREE.Vector3(0, 1, 0), color: '#4488ff' },
+  { label: '主视图 X', direction: new THREE.Vector3(0, 0, 1), color: '#e94560' },
+  { label: '右视图 Y', direction: new THREE.Vector3(1, 0, 0), color: '#00cc44' },
+  { label: '俯视图 Z', direction: new THREE.Vector3(0, 1, 0), color: '#4488ff' },
 ];
 
 /** 单个半透明圆柱体轴杆 */

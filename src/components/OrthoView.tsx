@@ -4,12 +4,12 @@ import { OrthoCameraController } from '../three/OrthoCameraController';
 import type { ViewDirection } from '../types';
 
 const DIRECTION_LABELS: Record<ViewDirection, string> = {
-  front: '正面 (Front)',
-  back: '背面 (Back)',
-  left: '左面 (Left)',
-  right: '右面 (Right)',
-  top: '顶面 (Top)',
-  bottom: '底面 (Bottom)',
+  front: '主视图',
+  back: '后视图',
+  left: '左视图',
+  right: '右视图',
+  top: '俯视图',
+  bottom: '仰视图',
 };
 
 /** 正交视图 — 只读，不可交互 */
