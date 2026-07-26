@@ -218,7 +218,7 @@
   flex-wrap: wrap;
   align-content: flex-start;
   gap: 2px;
-  background: #252d40;
+  background: #141a29;
   overflow: auto;
 }
 
@@ -226,7 +226,7 @@
   display: flex;
   flex-direction: column;
   background: #141a29;
-  width: min(280px, calc(50% - 2px));
+  width: min(280px, calc(50% - 1px));
   aspect-ratio: 1;
 }
 
@@ -319,7 +319,7 @@
   }
 
   .ortho-view-card {
-    width: min(150px, calc(50% - 2px));
+    width: min(150px, calc(50% - 1px));
   }
 
   .ortho-view-title {
