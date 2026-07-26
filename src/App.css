@@ -290,22 +290,22 @@
    ========================================== */
 @media (max-width: 768px) {
   .app {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .toolbar {
-    padding: 8px 10px;
-    gap: 8px;
+    padding: 6px 8px;
+    gap: 6px;
   }
 
   .toolbar-title {
-    font-size: 19px;
+    font-size: 14px;
   }
 
   .toolbar-buttons button,
   .mode-buttons .btn-mode {
-    padding: 6px 12px;
-    font-size: 15px;
+    padding: 4px 8px;
+    font-size: 12px;
   }
 
   .main-layout {
@@ -342,8 +342,8 @@
   }
 
   .color-trigger {
-    padding: 6px 12px;
-    font-size: 15px;
+    padding: 4px 8px;
+    font-size: 12px;
   }
 
   .color-panel {
