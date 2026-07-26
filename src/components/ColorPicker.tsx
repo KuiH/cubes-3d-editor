@@ -33,15 +33,12 @@ export function ColorPicker() {
       <button
         className="color-trigger"
         onClick={() => setOpen(!open)}
-        title="选择颜色"
       >
         <span
           className="color-swatch"
           style={{ background: currentColor ?? '#f5f5f5' }}
         />
-        <span className="color-label">
-          {currentColor ?? '默认'}
-        </span>
+        调色盘
       </button>
 
       {open && (
@@ -69,7 +66,7 @@ export function ColorPicker() {
             className="color-clear-btn"
             onClick={() => setColor(null)}
           >
-            重置为默认白色
+            默认
           </button>
         </div>
       )}

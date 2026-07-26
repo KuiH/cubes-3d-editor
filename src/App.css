@@ -31,20 +31,12 @@
   letter-spacing: 0.02em;
 }
 
-.toolbar-hint {
-  font-size: 17px;
-  color: #6b7394;
-  letter-spacing: 0.03em;
-}
-
-/* ----- 通用按钮（预设 / Clear / 模式切换） ----- */
 .toolbar-buttons {
   display: flex;
   gap: 8px;
 }
 
-.toolbar-buttons button,
-.btn-paint-mode {
+.toolbar-buttons button {
   padding: 8px 18px;
   border: 1px solid #2a334b;
   border-radius: 5px;
@@ -56,8 +48,7 @@
   transition: background 0.15s, border-color 0.15s;
 }
 
-.toolbar-buttons button:hover,
-.btn-paint-mode:hover {
+.toolbar-buttons button:hover {
   background: #252d40;
   border-color: #3b4560;
 }
@@ -71,11 +62,37 @@
   background: #3d1f24 !important;
 }
 
-.btn-paint-mode {
-  white-space: nowrap;
+/* ----- 放置/涂色 双按钮 ----- */
+.mode-buttons {
+  display: flex;
+  gap: 0;
 }
 
-.btn-paint-mode.active {
+.mode-buttons .btn-mode {
+  padding: 8px 18px;
+  border: 1px solid #2a334b;
+  background: #1a2136;
+  color: #c8d0e0;
+  cursor: pointer;
+  font-size: 17px;
+  line-height: 1.4;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.mode-buttons .btn-mode:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.mode-buttons .btn-mode:last-child {
+  border-radius: 0 5px 5px 0;
+  border-left: none;
+}
+
+.mode-buttons .btn-mode:hover {
+  background: #252d40;
+}
+
+.mode-buttons .btn-mode.active {
   background: #252d40;
   border-color: #ffd700;
   color: #ffd700;
@@ -113,10 +130,6 @@
   border-radius: 3px;
   border: 1px solid #4a5570;
   flex-shrink: 0;
-}
-
-.color-label {
-  font-size: 16px;
 }
 
 .color-panel {
@@ -282,12 +295,8 @@
     font-size: 19px;
   }
 
-  .toolbar-hint {
-    display: none;
-  }
-
   .toolbar-buttons button,
-  .btn-paint-mode {
+  .mode-buttons .btn-mode {
     padding: 6px 12px;
     font-size: 15px;
   }
