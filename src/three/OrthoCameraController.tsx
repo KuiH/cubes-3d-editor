@@ -32,7 +32,7 @@ function computeBoundingBox(cubes: Array<{ position: [number, number, number] }>
 
 /** 正交视图固定相机控制器 */
 export function OrthoCameraController({ direction }: { direction: ViewDirection }) {
-  const { camera } = useThree();
+  const { camera, size } = useThree();
   const cubes = useCubeStore((s) => s.cubes);
 
   const config = VIEW_CONFIGS[direction];
@@ -56,13 +56,23 @@ export function OrthoCameraController({ direction }: { direction: ViewDirection 
     return Math.max(maxDim * 1.2, 5);
   }, [cubes]);
 
+  // 设置视锥体，根据 Canvas 宽高比修正防止正方体变形
   useEffect(() => {
-    (camera as THREE.OrthographicCamera).left = -frustumSize;
-    (camera as THREE.OrthographicCamera).right = frustumSize;
-    (camera as THREE.OrthographicCamera).top = frustumSize;
-    (camera as THREE.OrthographicCamera).bottom = -frustumSize;
-    camera.updateProjectionMatrix();
-  }, [camera, frustumSize]);
+    const cam = camera as THREE.OrthographicCamera;
+    const aspect = size.width / size.height;
+    if (aspect >= 1) {
+      cam.left = -frustumSize * aspect;
+      cam.right = frustumSize * aspect;
+      cam.top = frustumSize;
+      cam.bottom = -frustumSize;
+    } else {
+      cam.left = -frustumSize;
+      cam.right = frustumSize;
+      cam.top = frustumSize / aspect;
+      cam.bottom = -frustumSize / aspect;
+    }
+    cam.updateProjectionMatrix();
+  }, [camera, frustumSize, size.width, size.height]);
 
   return null;
 }
