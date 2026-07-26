@@ -9,7 +9,7 @@
   background: #141a29;
   color: #d0d6e0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 /* ==========================================
@@ -18,8 +18,8 @@
 .toolbar {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 12px 20px;
+  gap: 18px;
+  padding: 14px 22px;
   background: #1a2136;
   border-bottom: 1px solid #252d40;
   flex-shrink: 0;
@@ -27,12 +27,12 @@
 
 .toolbar-title {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 24px;
   letter-spacing: 0.02em;
 }
 
 .toolbar-hint {
-  font-size: 15px;
+  font-size: 17px;
   color: #6b7394;
   letter-spacing: 0.03em;
 }
@@ -45,13 +45,13 @@
 
 .toolbar-buttons button,
 .btn-paint-mode {
-  padding: 7px 16px;
+  padding: 8px 18px;
   border: 1px solid #2a334b;
   border-radius: 5px;
   background: #1a2136;
   color: #c8d0e0;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.4;
   transition: background 0.15s, border-color 0.15s;
 }
@@ -92,14 +92,14 @@
 .color-trigger {
   display: flex;
   align-items: center;
-  gap: 7px;
-  padding: 7px 14px;
+  gap: 8px;
+  padding: 8px 16px;
   border: 1px solid #2a334b;
   border-radius: 5px;
   background: #1a2136;
   color: #c8d0e0;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 17px;
   transition: background 0.15s;
 }
 
@@ -108,15 +108,15 @@
 }
 
 .color-swatch {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   border-radius: 3px;
   border: 1px solid #4a5570;
   flex-shrink: 0;
 }
 
 .color-label {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .color-panel {
@@ -129,19 +129,19 @@
   border-radius: 8px;
   z-index: 100;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
-  min-width: 270px;
+  min-width: 280px;
 }
 
 .color-presets {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 6px;
   margin-bottom: 12px;
 }
 
 .color-swatch-btn {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border: 2px solid transparent;
   border-radius: 5px;
   cursor: pointer;
@@ -167,13 +167,13 @@
 
 .color-clear-btn {
   width: 100%;
-  padding: 7px;
+  padding: 8px;
   border: 1px solid #2a334b;
   border-radius: 5px;
   background: transparent;
   color: #f0626e;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   transition: background 0.15s;
 }
 
@@ -213,13 +213,13 @@
   display: flex;
   flex-direction: column;
   background: #141a29;
-  width: min(260px, calc(50% - 2px));
+  width: min(280px, calc(50% - 2px));
   aspect-ratio: 1;
 }
 
 .ortho-view-title {
-  padding: 4px 10px;
-  font-size: 14px;
+  padding: 5px 12px;
+  font-size: 16px;
   font-weight: 600;
   color: #a0a8c0;
   letter-spacing: 0.03em;
@@ -237,18 +237,18 @@
    ========================================== */
 .view-panel {
   display: flex;
-  gap: 18px;
-  padding: 9px 20px;
+  gap: 20px;
+  padding: 10px 22px;
   background: #1a2136;
   border-top: 1px solid #252d40;
-  font-size: 15px;
+  font-size: 17px;
   flex-shrink: 0;
 }
 
 .view-checkbox {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   cursor: pointer;
   user-select: none;
   color: #a0a8c0;
@@ -261,8 +261,8 @@
 .view-checkbox input {
   cursor: pointer;
   accent-color: #ffd700;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
 }
 
 /* ==========================================
@@ -270,7 +270,7 @@
    ========================================== */
 @media (max-width: 768px) {
   .app {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .toolbar {
@@ -279,7 +279,7 @@
   }
 
   .toolbar-title {
-    font-size: 17px;
+    font-size: 19px;
   }
 
   .toolbar-hint {
@@ -289,7 +289,7 @@
   .toolbar-buttons button,
   .btn-paint-mode {
     padding: 6px 12px;
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .main-layout {
@@ -314,14 +314,14 @@
   }
 
   .ortho-view-title {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .view-panel {
     flex-wrap: wrap;
     gap: 12px;
     padding: 6px 10px;
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .color-picker {
@@ -329,17 +329,17 @@
   }
 
   .color-trigger {
-    padding: 5px 10px;
-    font-size: 14px;
+    padding: 6px 12px;
+    font-size: 15px;
   }
 
   .color-panel {
     right: -20px;
-    min-width: 250px;
+    min-width: 260px;
   }
 
   .color-swatch-btn {
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
   }
 }
