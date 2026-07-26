@@ -5,13 +5,15 @@ import { ViewDirection } from '../types';
 import { useCubeStore } from '../store/cubeStore';
 
 /** 各正交视图方向对应的相机初始配置 */
+// 相机放在想看到的面的同侧，看向原点：
+//   例如要看 +X 面（右面），相机应位于 x>0 侧 → (20,0,0)
 const VIEW_CONFIGS: Record<ViewDirection, { pos: THREE.Vector3; up: THREE.Vector3 }> = {
   front:  { pos: new THREE.Vector3(0, 0, 20),  up: new THREE.Vector3(0, 1, 0) },
   back:   { pos: new THREE.Vector3(0, 0, -20), up: new THREE.Vector3(0, 1, 0) },
-  right:  { pos: new THREE.Vector3(-20, 0, 0), up: new THREE.Vector3(0, 1, 0) },
-  left:   { pos: new THREE.Vector3(20, 0, 0),  up: new THREE.Vector3(0, 1, 0) },
-  top:    { pos: new THREE.Vector3(0, -20, 0), up: new THREE.Vector3(0, 0, 1) },
-  bottom: { pos: new THREE.Vector3(0, 20, 0),  up: new THREE.Vector3(0, 0, -1) },
+  right:  { pos: new THREE.Vector3(20, 0, 0),  up: new THREE.Vector3(0, 1, 0) },
+  left:   { pos: new THREE.Vector3(-20, 0, 0), up: new THREE.Vector3(0, 1, 0) },
+  top:    { pos: new THREE.Vector3(0, 20, 0),  up: new THREE.Vector3(0, 0, 1) },
+  bottom: { pos: new THREE.Vector3(0, -20, 0), up: new THREE.Vector3(0, 0, -1) },
 };
 
 /** 计算所有正方体的包围盒 */
