@@ -1,10 +1,9 @@
 import * as THREE from 'three';
-import { Grid } from '@react-three/drei';
 import { useCubeStore } from '../store/cubeStore';
 import { CubeMesh } from './CubeMesh';
 import { useMemo } from 'react';
 
-/** 不可见网格检测平面——用于捕获"点击空白处"来放置第一个正方体 */
+/** 不可见检测平面——用于捕获"点击空白处"来放置第一个正方体 */
 function GridPlane() {
   return (
     <mesh
@@ -19,27 +18,13 @@ function GridPlane() {
   );
 }
 
-/** 场景内容：所有正方体 + 网格 */
+/** 场景内容：所有正方体 + 灯光 + 检测平面 */
 export function Scene() {
   const cubes = useCubeStore((s) => s.cubes);
   const cubeList = useMemo(() => Array.from(cubes.values()), [cubes]);
 
   return (
     <>
-      {/* 世界坐标网格（y=-0.5 为地面层） */}
-      <Grid
-        position={[0, -0.5, 0]}
-        args={[60, 60]}
-        cellSize={1}
-        cellThickness={0.5}
-        cellColor="#888888"
-        sectionSize={5}
-        sectionThickness={1}
-        sectionColor="#444444"
-        fadeDistance={40}
-        infiniteGrid
-      />
-
       {/* 不可见检测平面 */}
       <GridPlane />
 
