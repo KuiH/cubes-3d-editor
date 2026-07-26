@@ -355,7 +355,8 @@
     flex: none;
     width: 100%;
     height: 48%;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: none;
+    grid-auto-rows: calc((100% - 2px) / 2);
     overflow-y: auto;
     scrollbar-width: none;
   }
