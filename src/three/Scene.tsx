@@ -9,9 +9,14 @@ export function Scene() {
 
   return (
     <>
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 15, 10]} intensity={0.9} />
-      <directionalLight position={[-5, 10, -5]} intensity={0.3} />
+      {/* 均匀光照：高环境光 + 6方向等强方向光，所有面亮度一致 */}
+      <ambientLight intensity={0.7} />
+      <directionalLight position={[1, 0, 0]} intensity={0.3} />
+      <directionalLight position={[-1, 0, 0]} intensity={0.3} />
+      <directionalLight position={[0, 1, 0]} intensity={0.3} />
+      <directionalLight position={[0, -1, 0]} intensity={0.3} />
+      <directionalLight position={[0, 0, 1]} intensity={0.3} />
+      <directionalLight position={[0, 0, -1]} intensity={0.3} />
 
       {cubeList.map((cube) => (
         <CubeMesh key={cube.id} data={cube} />

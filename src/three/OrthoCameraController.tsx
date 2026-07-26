@@ -12,8 +12,8 @@ const VIEW_CONFIGS: Record<ViewDirection, { pos: THREE.Vector3; up: THREE.Vector
   back:   { pos: new THREE.Vector3(0, 0, -20), up: new THREE.Vector3(0, 1, 0) },
   right:  { pos: new THREE.Vector3(20, 0, 0),  up: new THREE.Vector3(0, 1, 0) },
   left:   { pos: new THREE.Vector3(-20, 0, 0), up: new THREE.Vector3(0, 1, 0) },
-  top:    { pos: new THREE.Vector3(0, 20, 0),  up: new THREE.Vector3(0, 0, 1) },
-  bottom: { pos: new THREE.Vector3(0, -20, 0), up: new THREE.Vector3(0, 0, -1) },
+  top:    { pos: new THREE.Vector3(0, 20, 0),  up: new THREE.Vector3(0, 0, -1) },
+  bottom: { pos: new THREE.Vector3(0, -20, 0), up: new THREE.Vector3(0, 0, 1) },
 };
 
 /** 计算所有正方体的包围盒 */
