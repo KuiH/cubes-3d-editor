@@ -9,7 +9,7 @@ export function Toolbar() {
   const paintMode = useColorStore((s) => s.paintMode);
   const togglePaintMode = useColorStore((s) => s.togglePaintMode);
 
-  const presets: PresetType[] = ['3x3x3', '4x4x4', '5x5x5'];
+  const presets: PresetType[] = ['1x1x1', '2x2x2', '3x3x3', '4x4x4', '5x5x5'];
 
   return (
     <div className="toolbar">

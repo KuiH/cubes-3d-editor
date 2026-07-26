@@ -29,26 +29,6 @@ function getAdjacentPosition(
   ];
 }
 
-/** 网格平面上的 snap（适用于未命中任何方块的空白区域点击） */
-function snapToGrid(
-  point: THREE.Vector3,
-  normal?: THREE.Vector3 | null,
-): [number, number, number] {
-  if (normal) {
-    const center = point.clone().addScaledVector(normal, 0.5);
-    return [
-      Math.round(center.x),
-      Math.round(center.y),
-      Math.round(center.z),
-    ];
-  }
-  return [
-    Math.round(point.x),
-    Math.round(point.y),
-    Math.round(point.z + 0.5),
-  ];
-}
-
 const DRAG_THRESHOLD = 3; // 像素，超过此距离视为拖拽而非点击
 
 /** 射线检测交互：
@@ -129,17 +109,7 @@ export function RaycastHandler() {
         return;
       }
 
-      // 未命中正方体 → 检测网格平面（两种模式均支持地面放置）
-      const gridHit = intersects.find(
-        (hit) => hit.object.name === 'gridPlane',
-      );
-      if (gridHit) {
-        const newPos = snapToGrid(gridHit.point, gridHit.face?.normal);
-        const newId = `${newPos[0]},${newPos[1]},${newPos[2]}`;
-        if (!cubes.has(newId)) {
-          addCube(newPos[0], newPos[1], newPos[2], currentColor);
-        }
-      }
+      // 未命中正方体 → 无操作（仅允许在已有方块表面相邻放置）
     },
     [getIntersections, cubes, addCube, selectCube, setCubeColor, currentColor, paintMode],
   );

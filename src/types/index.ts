@@ -12,4 +12,4 @@ export interface CubeData {
 export type InteractionMode = 'add' | 'paint' | 'delete';
 
 /** 预设结构类型 */
-export type PresetType = '3x3x3' | '4x4x4' | '5x5x5';
+export type PresetType = '1x1x1' | '2x2x2' | '3x3x3' | '4x4x4' | '5x5x5';
