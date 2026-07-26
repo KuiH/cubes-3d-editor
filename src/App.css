@@ -204,7 +204,7 @@
 }
 
 .main-view {
-  flex: 3;
+  flex: 1;
   min-width: 350px;
   border-right: 1px solid #252d40;
 }
@@ -213,13 +213,20 @@
    Ortho Grid
    ========================================== */
 .ortho-grid {
-  flex: 2;
+  flex: none;
+  width: 562px;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
   gap: 2px;
   background: #141a29;
   overflow: auto;
+}
+
+@media (max-width: 1500px) {
+  .ortho-grid {
+    width: 40vw;
+  }
 }
 
 .ortho-view-card {
