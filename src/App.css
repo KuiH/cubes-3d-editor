@@ -29,15 +29,16 @@
   font-weight: 700;
   font-size: 24px;
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
-.toolbar-buttons {
-  display: flex;
-  gap: 8px;
+/* ----- 预设图形下拉 ----- */
+.preset-dropdown {
+  position: relative;
 }
 
-.toolbar-buttons button {
-  padding: 8px 18px;
+.preset-trigger {
+  padding: 8px 14px;
   border: 1px solid #2a334b;
   border-radius: 5px;
   background: #1a2136;
@@ -45,12 +46,44 @@
   cursor: pointer;
   font-size: 17px;
   line-height: 1.4;
+  white-space: nowrap;
   transition: background 0.15s, border-color 0.15s;
 }
 
-.toolbar-buttons button:hover {
+.preset-trigger:hover {
   background: #252d40;
   border-color: #3b4560;
+}
+
+.preset-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  padding: 4px;
+  background: #1a2136;
+  border: 1px solid #2a334b;
+  border-radius: 6px;
+  z-index: 100;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  min-width: 130px;
+}
+
+.preset-item {
+  display: block;
+  width: 100%;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #c8d0e0;
+  cursor: pointer;
+  font-size: 17px;
+  text-align: left;
+  transition: background 0.1s;
+}
+
+.preset-item:hover {
+  background: #252d40;
 }
 
 .btn-clear {
@@ -302,7 +335,17 @@
     font-size: 14px;
   }
 
-  .toolbar-buttons button,
+  .preset-trigger {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+
+  .preset-item {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .btn-clear,
   .mode-buttons .btn-mode {
     padding: 4px 8px;
     font-size: 12px;
