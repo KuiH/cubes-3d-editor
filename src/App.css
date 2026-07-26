@@ -1,79 +1,90 @@
+/* ==========================================
+   Global
+   ========================================== */
 .app {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: #1a1a2e;
-  color: #e0e0e0;
+  background: #141a29;
+  color: #d0d6e0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* === Toolbar === */
+/* ==========================================
+   Toolbar
+   ========================================== */
 .toolbar {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 8px 16px;
-  background: #16213e;
-  border-bottom: 1px solid #0f3460;
+  gap: 14px;
+  padding: 10px 18px;
+  background: #1a2136;
+  border-bottom: 1px solid #252d40;
+  flex-shrink: 0;
 }
 
 .toolbar-title {
-  font-weight: bold;
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.02em;
 }
 
 .toolbar-hint {
-  font-size: 12px;
-  color: #888;
+  font-size: 13px;
+  color: #6b7394;
+  letter-spacing: 0.03em;
 }
 
+/* ----- 通用按钮（预设 / Clear / 模式切换） ----- */
 .toolbar-buttons {
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 
-.toolbar-buttons button {
-  padding: 6px 14px;
-  border: 1px solid #0f3460;
-  border-radius: 4px;
-  background: #1a1a2e;
-  color: #e0e0e0;
-  cursor: pointer;
-  font-size: 13px;
-}
-
-.toolbar-buttons button:hover {
-  background: #0f3460;
-}
-
-.btn-clear {
-  color: #e94560 !important;
-  border-color: #e94560 !important;
-}
-
-/* === Paint Mode Toggle === */
+.toolbar-buttons button,
 .btn-paint-mode {
-  padding: 4px 12px;
-  border: 1px solid #0f3460;
-  border-radius: 4px;
-  background: #1a1a2e;
-  color: #e0e0e0;
+  padding: 6px 14px;
+  border: 1px solid #2a334b;
+  border-radius: 5px;
+  background: #1a2136;
+  color: #c8d0e0;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
+  line-height: 1.4;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.toolbar-buttons button:hover,
+.btn-paint-mode:hover {
+  background: #252d40;
+  border-color: #3b4560;
+}
+
+/* Clear 按钮 */
+.btn-clear {
+  color: #f0626e !important;
+  border-color: #f0626e !important;
+}
+
+.btn-clear:hover {
+  background: #3d1f24 !important;
+}
+
+/* 涂色/放置模式切换按钮 */
+.btn-paint-mode {
   white-space: nowrap;
 }
 
 .btn-paint-mode.active {
-  background: #0f3460;
+  background: #252d40;
   border-color: #ffd700;
   color: #ffd700;
 }
 
-.btn-paint-mode:hover {
-  background: #0f3460;
-}
-
-/* === Color Picker === */
+/* ==========================================
+   Color Picker
+   ========================================== */
 .color-picker {
   position: relative;
   margin-left: auto;
@@ -83,93 +94,97 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 10px;
-  border: 1px solid #0f3460;
-  border-radius: 4px;
-  background: #1a1a2e;
-  color: #e0e0e0;
+  padding: 6px 12px;
+  border: 1px solid #2a334b;
+  border-radius: 5px;
+  background: #1a2136;
+  color: #c8d0e0;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
+  transition: background 0.15s;
 }
 
 .color-trigger:hover {
-  background: #0f3460;
+  background: #252d40;
 }
 
 .color-swatch {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border-radius: 3px;
-  border: 1px solid #555;
+  border: 1px solid #4a5570;
   flex-shrink: 0;
 }
 
 .color-label {
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .color-panel {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 8px);
   right: 0;
-  margin-top: 6px;
-  padding: 12px;
-  background: #1a1a2e;
-  border: 1px solid #0f3460;
-  border-radius: 6px;
+  padding: 14px;
+  background: #1a2136;
+  border: 1px solid #2a334b;
+  border-radius: 8px;
   z-index: 100;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
-  min-width: 260px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+  min-width: 270px;
 }
 
 .color-presets {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
-  margin-bottom: 10px;
+  gap: 5px;
+  margin-bottom: 12px;
 }
 
 .color-swatch-btn {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border: 2px solid transparent;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   padding: 0;
   outline: none;
+  transition: transform 0.1s, border-color 0.1s;
 }
 
 .color-swatch-btn:hover,
 .color-swatch-btn.active {
   border-color: #ffd700;
-  transform: scale(1.15);
+  transform: scale(1.18);
 }
 
 .color-custom {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .color-custom .react-colorful {
   width: 100% !important;
-  height: 140px !important;
+  height: 150px !important;
 }
 
 .color-clear-btn {
   width: 100%;
-  padding: 6px;
-  border: 1px solid #0f3460;
-  border-radius: 4px;
+  padding: 7px;
+  border: 1px solid #2a334b;
+  border-radius: 5px;
   background: transparent;
-  color: #e94560;
+  color: #f0626e;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 13px;
+  transition: background 0.15s;
 }
 
 .color-clear-btn:hover {
-  background: #0f3460;
+  background: #252d40;
 }
 
-/* === Main Layout === */
+/* ==========================================
+   Main Layout
+   ========================================== */
 .main-layout {
   flex: 1;
   display: flex;
@@ -177,38 +192,40 @@
 }
 
 .main-view {
-  flex: 2;
-  min-width: 400px;
-  border-right: 1px solid #0f3460;
+  flex: 3;
+  min-width: 350px;
+  border-right: 1px solid #252d40;
 }
 
-/* === Ortho Grid === */
+/* ==========================================
+   Ortho Grid
+   ========================================== */
 .ortho-grid {
-  flex: 1;
+  flex: 2;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
   gap: 2px;
-  background: #0f3460;
+  background: #252d40;
   overflow: auto;
 }
 
 .ortho-view-card {
   display: flex;
   flex-direction: column;
-  background: #1a1a2e;
-  /* 正方形卡片：宽度和高度保持一致 */
-  width: min(280px, calc(50% - 2px));
+  background: #141a29;
+  width: min(260px, calc(50% - 2px));
   aspect-ratio: 1;
 }
 
 .ortho-view-title {
-  padding: 2px 8px;
-  font-size: 11px;
-  font-weight: bold;
-  color: #888;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #8890b0;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  background: #16213e;
+  background: #1a2136;
   flex-shrink: 0;
 }
 
@@ -217,70 +234,90 @@
   min-height: 0;
 }
 
-/* === View Panel === */
+/* ==========================================
+   View Panel (底部复选框)
+   ========================================== */
 .view-panel {
   display: flex;
-  gap: 16px;
-  padding: 6px 16px;
-  background: #16213e;
-  border-top: 1px solid #0f3460;
-  font-size: 13px;
+  gap: 18px;
+  padding: 8px 18px;
+  background: #1a2136;
+  border-top: 1px solid #252d40;
+  font-size: 14px;
+  flex-shrink: 0;
 }
 
 .view-checkbox {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
   cursor: pointer;
   user-select: none;
+  color: #a0a8c0;
+}
+
+.view-checkbox:hover {
+  color: #d0d6e0;
 }
 
 .view-checkbox input {
   cursor: pointer;
+  accent-color: #ffd700;
 }
 
-/* === Mobile Responsive === */
+/* ==========================================
+   Mobile Responsive
+   ========================================== */
 @media (max-width: 768px) {
+  .toolbar {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .toolbar-title {
+    font-size: 15px;
+  }
+
+  .toolbar-hint {
+    display: none;
+  }
+
+  .toolbar-buttons button,
+  .btn-paint-mode {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+
   .main-layout {
     flex-direction: column;
   }
 
   .main-view {
     flex: none;
-    height: 50%;
+    height: 52%;
     min-width: 0;
     border-right: none;
-    border-bottom: 1px solid #0f3460;
+    border-bottom: 1px solid #252d40;
   }
 
   .ortho-grid {
-    flex: 1;
-    height: 50%;
+    flex: none;
+    height: 48%;
   }
 
   .ortho-view-card {
-    width: min(140px, calc(50% - 2px));
+    width: min(150px, calc(50% - 2px));
   }
 
-  .toolbar {
-    padding: 6px 8px;
-    gap: 8px;
-  }
-
-  .toolbar-title {
-    font-size: 14px;
-  }
-
-  .toolbar-buttons button {
-    padding: 4px 10px;
-    font-size: 12px;
+  .ortho-view-title {
+    font-size: 11px;
   }
 
   .view-panel {
     flex-wrap: wrap;
-    gap: 10px;
-    padding: 4px 8px;
-    font-size: 12px;
+    gap: 12px;
+    padding: 6px 10px;
+    font-size: 13px;
   }
 
   .color-picker {
@@ -288,17 +325,17 @@
   }
 
   .color-trigger {
-    padding: 4px 8px;
-    font-size: 12px;
+    padding: 5px 10px;
+    font-size: 13px;
   }
 
   .color-panel {
-    right: -40px;
-    min-width: 240px;
+    right: -20px;
+    min-width: 250px;
   }
 
   .color-swatch-btn {
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
   }
 }

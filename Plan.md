@@ -534,7 +534,6 @@ function snapToGridForOrtho(
 | 5.2 | 工具栏和控件样式统一（按钮、复选框、面板） | 视觉一致 |
 | 5.3 | 移动端细节微调（触摸区域、字体大小） | 手机端操作舒适 |
 | 5.4 | 深色主题色彩统一 | 整体美观 |
-| 5.4 | 边界测试（大量正方体、快速切换视图、连续点击等） | 无 crash、状态一致 |
 
 ---
 
@@ -590,9 +589,9 @@ function snapToGridForOrtho(
 
 双击时浏览器事件顺序为 `click → click → dblclick`，若不对 click 做特殊处理，会先执行两次放置再执行删除。解决方案：
 
-- `handleClick` 不立即执行，而是通过 `setTimeout` 延迟 250ms
+- `handleClick` 不立即执行，而是通过 `setTimeout` 延迟 200ms
 - `handleDoubleClick` 触发时，先 `clearTimeout` 取消待执行的单击动作，再执行删除
-- 连续两次单击（间隔 > 250ms）时，第一次单击的延迟任务已执行，第二次正常排队，不会丢失
+- 连续两次单击（间隔 > 200ms）时，第一次单击的延迟任务已执行，第二次正常排队，不会丢失
 
 ---
 
