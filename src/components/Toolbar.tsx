@@ -55,7 +55,9 @@ export function Toolbar() {
     <div className="toolbar">
       <div className="toolbar-row">
         <span className="toolbar-title">3D Cube Editor</span>
-        <div className="toolbar-spacer" />
+      </div>
+      <div className="toolbar-row">
+        <PresetDropdown />
         <div className="mode-buttons">
           <button
             className={`btn-mode ${!paintMode ? 'active' : ''}`}
@@ -70,9 +72,6 @@ export function Toolbar() {
             涂色
           </button>
         </div>
-      </div>
-      <div className="toolbar-row">
-        <PresetDropdown />
         <ColorPicker />
       </div>
     </div>
