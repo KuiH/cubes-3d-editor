@@ -1,7 +1,6 @@
 import { Canvas } from '@react-three/fiber';
 import { Scene } from '../three/Scene';
 import { OrthoCameraController } from '../three/OrthoCameraController';
-import { RaycastHandler } from '../three/RaycastHandler';
 import type { ViewDirection } from '../types';
 
 const DIRECTION_LABELS: Record<ViewDirection, string> = {
@@ -13,6 +12,7 @@ const DIRECTION_LABELS: Record<ViewDirection, string> = {
   bottom: '底面 (Bottom)',
 };
 
+/** 正交视图 — 只读，不可交互 */
 export function OrthoView({ direction }: { direction: ViewDirection }) {
   return (
     <div className="ortho-view-card">
@@ -29,7 +29,6 @@ export function OrthoView({ direction }: { direction: ViewDirection }) {
         >
           <Scene />
           <OrthoCameraController direction={direction} />
-          <RaycastHandler />
         </Canvas>
       </div>
     </div>
